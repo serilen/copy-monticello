@@ -52,7 +52,7 @@
 			//appendArrows: $(".className"), //перемещает стрелки в указанный блок с классом className
 			//appendDots: $(".className"), //перемещает точки в указанный блок с классом className
 		});	
-$('.news-slider').slick({
+		$('.news-slider').slick({
 			arrows: true, //показывает стрелки или нет
 			dots: true, //показывает точки или нет
 			adaptiveHeight: true,  //адаптивная высота оболочки под высоты слайда
@@ -84,21 +84,42 @@ $('.news-slider').slick({
 			//appendDots: $(".className"), //перемещает точки в указанный блок с классом className
 		});	
 
-	})
+		$("#menu").on("click","a", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+        //забираем идентификатор бока с атрибута href
+        let id  = $(this).attr('href'),
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+        top = $(id).offset().top;
+        //анимируем переход на расстояние - top за 1500 мс
+        $('body,html').animate({scrollTop: top}, 1500);
+     });
 
-	const leadNewYork = document.querySelector('#lead_text_newyork');
-	const leadHonkHong = document.querySelector('#lead_text_honkong');
-	const buttonNewYork = document.querySelector('#button_text_newyork');
-	const buttonHonkHong = document.querySelector('#button_text_honkong');
+		$("#about_us").on("click","#scroll", function (event) {
+        //отменяем стандартную обработку нажатия по ссылке
+        event.preventDefault();
+        //забираем идентификатор бока с атрибута href
+        let id  = $(this).attr('href'),
+        //узнаем высоту от начала страницы до блока на который ссылается якорь
+        top = $(id).offset().top;
+        //анимируем переход на расстояние - top за 1500 мс
+        $('body,html').animate({scrollTop: top}, 1500);
+     });
+	});
 
-	buttonNewYork.addEventListener('click', () => {
-		leadNewYork.classList.toggle("see-more");
-		buttonNewYork.textContent = "less details";
-	});
-	buttonHonkHong.addEventListener('click', () => {
-		leadHonkHong.classList.toggle("see-more");
-		buttonHonkHong.textContent = "less details";
-	});
+const leadNewYork = document.querySelector('#lead_text_newyork');
+const leadHonkHong = document.querySelector('#lead_text_honkong');
+const buttonNewYork = document.querySelector('#button_text_newyork');
+const buttonHonkHong = document.querySelector('#button_text_honkong');
+
+buttonNewYork.addEventListener('click', () => {
+	leadNewYork.classList.toggle("see-more");
+	buttonNewYork.textContent = "less details";
+});
+buttonHonkHong.addEventListener('click', () => {
+	leadHonkHong.classList.toggle("see-more");
+	buttonHonkHong.textContent = "less details";
+});
 
 
 })();
