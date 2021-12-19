@@ -281,8 +281,11 @@ a {
   height: 40px;
   border: 1px solid #ffffff;
   border-radius: 50%;
-  bottom: 50px;
-  left: 50%; }
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%); }
   .scroll:before {
     -webkit-transform: translateX(-100%) rotate(135deg) translateY(-100%);
     -ms-transform: translateX(-100%) rotate(135deg) translateY(-100%);

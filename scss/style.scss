@@ -1,21 +1,21 @@
 //fonts
 @font-face {
-    font-family: 'Gotham';
-    font-display: swap;
-    src: url('../fonts/gotham.woff2') format('woff2'),
-         url('../gotham.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
+	font-family: 'Gotham';
+	font-display: swap;
+	src: url('../fonts/gotham.woff2') format('woff2'),
+	url('../gotham.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
 }
 
 
 @font-face {
-    font-family: 'Gotham';
-    font-display: swap;
-    src: url('../fonts/gotham-italic.woff2') format('woff2'),
-         url('../gotham-italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
+	font-family: 'Gotham';
+	font-display: swap;
+	src: url('../fonts/gotham-italic.woff2') format('woff2'),
+	url('../gotham-italic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
 
 }
 
@@ -315,8 +315,9 @@ a {
 	height: 40px;
 	border: 1px solid $bg-color;
 	border-radius: 50%;
-	bottom: 50px;
+	bottom: 0;
 	left: 50%;
+	transform: translate(-50%, -100%);
 
 	&:before {
 		transform: translateX(-100%) rotate(135deg) translateY(-100%);
