@@ -53,8 +53,9 @@
 }
 
 //variable
-$bg-color: #ffffff;
-$color-text-base: #2c4058;
+$color-bg-base: #ffffff;
+$color-text-base: #4b5562;
+$color-title: #2c4058;
 
 *, *:after, *:before {
 	box-sizing: border-box;
@@ -66,7 +67,7 @@ html, body{
 	font-family: 'Gotham', sans-serif;
 	font-size: 16px;
 	font-weight: 400;
-	color: $color-text-base;
+	color: $color-title;
 	line-height: 1.6;
 	height: 100%;	
 	max-height: 100vh;
@@ -125,34 +126,39 @@ a {
 	justify-content: center;
 	font-family: 'Gotham', sans-serif;
 	font-weight: 400;
-	color: $color-text-base;
+	color: $color-title;
 	text-align: center;
 	vertical-align: middle;
 	user-select: none;
-	background-color: #ffffff;
+	background-color: $color-bg-base;
 	padding: .75rem 1rem;
 	font-size: .875rem;
 	line-height: 1.5;
 	align-items: center;
-	border: 1px solid #000000;
+	border: 1px solid $color-title;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 	text-transform: uppercase;
 	letter-spacing: 0.075em;
-	min-width: 144px;
+	min-width: 188px;
+	box-shadow: 2px -4px 0px -1px transparent inset;
 
-	&:focus {
-		border-color: #000000;
+	&--small {
+		min-width: 144px;
 	}
 
-	&:hover,
-	&:active {
-		color: #5474fd;
-		background-color: #ffffff;
+	&:focus {
+		box-shadow: 2px -4px 0px -1px $color-title inset;
+	}
+
+	&:hover {
+		color: $color-bg-base;
+		background-color: $color-title;
 		cursor: pointer;
 	}			
 
 	&:active {
-		border-color: #5474fd;
+		color: $color-title;
+		background-color: $color-bg-base; 
 	}
 }
 
@@ -164,7 +170,7 @@ a {
 }
 
 .header {
-	color: $bg-color;
+	color: $color-bg-base;
 	background: linear-gradient( 45deg, rgb(85,183,255) 0%, rgb(126,90,255) 100%);
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -193,14 +199,13 @@ a {
 	}
 }
 .logo {
-	display: block;
-	
+		
 	&__link {
 		display: block;
 		border: 2px solid transparent;
 
 		&:focus {
-			border-color: #000000;
+			border-bottom-color: $color-title;
 		}
 
 		&:hover,
@@ -225,8 +230,7 @@ a {
 	font-size: 14px;
 	text-align: center;
 	line-height: 1.5;
-	margin-right: -21px;
-
+	
 	&__item:not(:last-child) {
 		margin-right: 50px;
 	}
@@ -245,7 +249,7 @@ a {
 			content: "";
 			width: 10px;
 			height: 10px;
-			border: 1px solid #ffffff;
+			border: 1px solid $color-bg-base;
 			border-radius: 50%;
 			left: 0;
 			top: 50%;
@@ -256,14 +260,14 @@ a {
 		&:active {
 			
 			&:before {
-				background-color: #fff;
+				background-color: $color-bg-base;
 			}
 		}
 
 		&:hover {
-			color:  #d82323;
+			color:  $color-title;
 			&:before {
-				background-color: #d82323;
+				background-color: $color-title;
 			}
 		}
 
@@ -294,14 +298,15 @@ a {
 		border: solid 1px rgba(255, 255, 255,0.4);
 
 		&:focus{
-			border-color: $bg-color;
-			color: #ec173f;
+			border-color: $color-title;
+			color: $color-text-base;
 		}
 		&:hover {
-			color: #ec173f;
+			color: $color-title;
 		}
 		&:active {
-			transform: scale(1.3);
+			transform: scale(1.2);
+			border-color: $color-title;
 		}
 	}
 }
@@ -313,7 +318,7 @@ a {
 	content: "";
 	width: 40px;
 	height: 40px;
-	border: 1px solid $bg-color;
+	border: 1px solid $color-bg-base;
 	border-radius: 50%;
 	bottom: 0;
 	left: 50%;
@@ -328,9 +333,10 @@ a {
 		position: absolute;
 		width: 6px;
 		height: 6px;
-		border-top: 1px solid $bg-color;
-		border-right: 1px solid $bg-color;
+		border-top: 1px solid $color-bg-base;
+		border-right: 1px solid $color-bg-base;
 		bottom: 0;
+
 	}
 
 	&:focus {
@@ -338,12 +344,15 @@ a {
 	}
 
 	&:hover {
-		transform: scale(1.2);
+		background-color: $color-bg-base;
+		border-color: $color-title;
+		&:before {
+			border-color: $color-title;
+		}
 	}
 
 	&:active {
-		transform: translateY(-3px);
-		transition: 0.3s;
+		opacity: 0.5;
 	}
 }
 
@@ -374,7 +383,6 @@ a {
 	&__title {
 		font-size: 80px;
 		margin-bottom: 30px;
-		width: 100%;
 	}
 	&__subtitle {
 		font-size: 18px;
@@ -396,13 +404,13 @@ a {
 		margin-bottom: 40px;	
 		width: 10px;
 		height: 10px;
-		border: 	solid 1px #ffffff;
+		border: 	solid 1px $color-bg-base;
 		border-radius: 50%;
 
 	}
 	// Активная точка
 	& .slick-dots li.slick-active{
-		background-color: #fff;
+		background-color: $color-bg-base;
 	}
 	// Элемент точки 
 	& .slick-dots li button{
@@ -411,11 +419,15 @@ a {
 		cursor: pointer;
 	} 
 
+	& figure {
+		position: relative;
+	}
+
 	& figcaption {
 		position: absolute;
 		top: 50%;
 		transform: translateY(-50%);
-		left: 3%;
+		left: 18%;
 	}
 }
 
@@ -428,7 +440,6 @@ a {
 	&__title {
 		margin-bottom: 100px;
 		text-align: center;
-		font-size: 44px;
 		position: relative;
 		&:before {
 			display: block;
@@ -483,7 +494,6 @@ a {
 		margin-bottom: 5px;
 	}
 	&__title {
-		font-size: 44px;
 		margin-bottom: 34px;
 	}
 	&__lead {
@@ -533,7 +543,7 @@ a {
 
 
 	&__title {
-		color: #ffffff;
+		color: $color-bg-base;
 		margin-bottom: 90px;
 		position: relative;
 		font-weight: 500;
@@ -543,7 +553,7 @@ a {
 			position: absolute;
 			width: 110px;
 			height: 1px;
-			background-color: #ffffff;
+			background-color: $color-bg-base;
 			top: -66%;
 			left: 50%;
 			transform: translateX(-50%);
@@ -554,6 +564,7 @@ a {
 .news-slider {
 	min-width: 0;
 	position: relative;
+	max-width: 1169px;
 	& .slick-list {
 		overflow: hidden;
 	}
@@ -561,6 +572,7 @@ a {
 	& .slick-track{
 		display: flex;
 		align-items: start;
+		transition: none;
 	}
 
 	& .slick-arrow {
@@ -607,7 +619,7 @@ a {
 		margin-right: 30px;	
 		width: 10px;
 		height: 10px;
-		border: 	solid 1px #ffffff;
+		border: 	solid 1px $color-bg-base;
 		border-radius: 50%;
 		&:last-child {
 			margin-right: 0;
@@ -616,7 +628,7 @@ a {
 	}
 	// Активная точка
 	& .slick-dots li.slick-active{
-		background-color: #fff;
+		background-color: $color-bg-base;
 	}
 	// Элемент точки 
 	& .slick-dots li button{
@@ -631,8 +643,8 @@ a {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		background-color: #ffffff;
-		color: #4b5562;
+		background-color: $color-bg-base;
+		color: $color-text-base;
 		padding: 20px 15px;
 		min-height: 270px;
 	}
@@ -702,6 +714,9 @@ a {
 	&__wrap {
 		margin-bottom: 60px;
 	}
+	&__img {
+		width: 100%;
+	}
 	&__btn {}
 }
 
@@ -735,7 +750,7 @@ a {
 	width: 770px;
 	padding: 80px 60px;
 	margin: auto;
-	background-color: #fff;
+	background-color: $color-bg-base;
 	bottom: 0;
 	left: 50%;
 	transform: translate(-50%, 30%);
@@ -791,7 +806,7 @@ a {
 .form-feedback {
 	
 	&__field {
-		border-bottom: 2px solid #4b5562;
+		border-bottom: 2px solid $color-text-base;
 		opacity: 0.5;
 		margin-bottom: 35px;
 		width: 100%;
@@ -799,7 +814,7 @@ a {
 			margin-bottom: 30px;
 		}
 		&:placeholder {
-			color: #4b5562;
+			color: $color-text-base;
 		}
 
 		&:focus,
@@ -817,7 +832,7 @@ a {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	color: #fff;
+	color: $color-bg-base;
 
 	&-container {
 		width: 770px;
@@ -841,7 +856,7 @@ a {
 			display: inline-block;
 			&:not(:last-child) {
 				padding-right: 20px;
-				border-right: 1px solid #fff;
+				border-right: 1px solid $color-bg-base;
 			}
 			&:not(:first-child) {
 				padding-left: 20px;
