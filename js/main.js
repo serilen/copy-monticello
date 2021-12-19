@@ -3,6 +3,8 @@
 
 	$(document).ready(function() {
 
+		$("#autofocus").focus();
+
 		$('.header-slider').slick({
 			arrows: false, //показывает стрелки или нет
 			dots: true, //показывает точки или нет
@@ -120,6 +122,5 @@ buttonHonkHong.addEventListener('click', () => {
 	leadHonkHong.classList.toggle("see-more");
 	buttonHonkHong.textContent = "less details";
 });
-
 
 })();
